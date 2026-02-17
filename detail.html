@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detail Project</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* CONTAINER */
+    .detail-container {
+      max-width: 1100px;
+      margin: 120px auto 60px;
+      padding: 20px;
+    }
+
+    /* LAYOUT DESKTOP: kiri gambar, kanan info */
+    .detail-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    /* GAMBAR */
+    .detail-image {
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(0,0,0,.15);
+    }
+
+    /* INFO */
+    .detail-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .detail-title {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .detail-desc {
+      font-size: 16px;
+      line-height: 1.7;
+      color: #444;
+      margin-bottom: 20px;
+    }
+
+    /* META INFO */
+    .detail-meta {
+      background: #f5f7fb;
+      padding: 15px 20px;
+      border-radius: 12px;
+      margin-bottom: 25px;
+      line-height: 1.6;
+    }
+
+    .detail-meta strong {
+      color: #2a5298;
+    }
+
+    /* TOMBOL */
+    .back-btn {
+      width: fit-content;
+      padding: 10px 20px;
+      background: #2a5298;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 10px;
+      transition: .3s;
+    }
+
+    .back-btn:hover {
+      background: #1d3f78;
+    }
+
+    /* RESPONSIVE MOBILE: jadi ke bawah */
+    @media (max-width: 768px) {
+      .detail-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .detail-title {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Detail Project</h1>
+</header>
+
+<main class="detail-container">
+
+  <div class="detail-layout">
+    <!-- GAMBAR -->
+    <img id="image" class="detail-image" src="" alt="">
+
+    <!-- INFO -->
+    <div class="detail-info">
+      <h1 id="title" class="detail-title"></h1>
+      <p id="desc" class="detail-desc"></p>
+
+      <div class="detail-meta">
+        <p><strong>Tools:</strong> <span id="tools"></span></p>
+        <p><strong>Tahun:</strong> <span id="year"></span></p>
+      </div>
+
+      <a href="index.html#design" class="back-btn">← Kembali ke Portfolio</a>
+    </div>
+  </div>
+
+</main>
+
+<script src="projects.js"></script>
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get("id");
+
+  const project = projects.find(p => p.id === id);
+
+  if (project) {
+    document.getElementById("title").textContent = project.title;
+    document.getElementById("image").src = project.image;
+    document.getElementById("image").alt = project.title;
+    document.getElementById("desc").textContent = project.desc;
+    document.getElementById("tools").textContent = project.tools;
+    document.getElementById("year").textContent = project.year;
+  } else {
+    document.querySelector(".detail-container").innerHTML =
+      "<h2>Project tidak ditemukan</h2>";
+  }
+</script>
+
+</body>
+</html>

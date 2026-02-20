@@ -1,4 +1,43 @@
-const projects = [
+const projectsWeb = [
+    {
+        id: "web-pegon",
+        title: "Arab Pegon Recognition",
+        image: "images/Website/bg.avif",
+        desc: `Implementation of CNN for transliteration.`,
+        tools: "Python, TensorFlow",
+        year: "2025",
+        link: "https://github.com/Syahrul-Arh38/Transliteration-of-Handwritten-Arabic-Pegon-Text-into-Latin-with-Convolutional-Neural-Network--CNN-"
+    },
+    {
+        id: "Javanese-CNN",
+        title: "Javanese Script Recognition Using CNN",
+        image: "/images/Website/aksara jawa.jpg",
+        desc: `Implementation of CNN for transliteration.`,
+        tools: "Python, TensorFlow",
+        year: "2023",
+        link: "https://github.com/Syahrul-Arh38/Javanese-Script-Recognition-Using-Convolutional-Neural-Networks--CNN-"
+      },
+      {
+        id: "CampusSeminarHub",
+        title: "Campus Seminar Hub",
+        image: "/images/Website/CampusSeminarHub.png",
+        desc: `Implementation of for.`,
+        tools: "Python, TensorFlow",
+        year: "2023",
+        link: "https://github.com/Syahrul-Arh38/Campus-Seminar-Hub"
+      },
+      {
+        id: "coming-soon",
+        title: "Arab Pegon Recognition",
+        image: "/images/Website/depositphotos_858675024-stock-video-coming-soon-text-glitch-pixel.jpg",
+        desc: `Implementation of CNN for transliteration.`,
+        tools: "Python, TensorFlow",
+        year: "2025"
+      }
+  ];
+  
+  
+const projectsDesign = [
     {
         id: "poster-psb",
         title: "Poster Penerimaan Santri Baru 2024",

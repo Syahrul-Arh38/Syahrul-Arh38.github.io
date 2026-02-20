@@ -21,42 +21,16 @@
 
 
 <main>
+
 <!-- PORTFOLIO WEBSITE -->
 <section id="web" class="tab-content active">
-<div class="grid">
-<div class="card">
-<img src="\images\Website\bg.avif" alt="Web Project">
-<h3>Arab Pegon Handwritten Recognition with CNN</h3>
-<p>Implementation of the Convolutional Neural Network (CNN) Method for Transliteration of Handwritten Arabic Pegon Text into Latin Script.</p>
-<a href="https://github.com/Syahrul-Arh38/Transliteration-of-Handwritten-Arabic-Pegon-Text-into-Latin-with-Convolutional-Neural-Network--CNN-" target="_blank">Visit</a>
-</div>
-<div class="card">
-  <img src="\images\Website\aksara jawa.jpg" alt="Web Project">
-  <h3>Javanese Script Recognition Using CNN</h3>
-  <p>none</p>
-  <a href="https://github.com/Syahrul-Arh38/Javanese-Script-Recognition-Using-Convolutional-Neural-Networks--CNN-" target="_blank">Visit</a>
-</div>
-<div class="card">
-  <img src="\images\Website\CampusSeminarHub.png" alt="Web Project">
-  <h3>Campus Seminar Hub</h3>
-  <p>none.</p>
-  <a href="https://github.com/Syahrul-Arh38/Campus-Seminar-Hub" target="_blank">Visit</a>
-</div>
-<div class="card">
-<img src="\images\Website\depositphotos_858675024-stock-video-coming-soon-text-glitch-pixel.jpg" alt="Web Project">
-<h3>Coming Soon</h3>
-<p>Coming Soon.</p>
-<a href="#" target="_blank"></a>
-</div>
-</div>
+  <div class="grid" id="web-gallery"></div>
 </section>
-
 
 <!-- DESAIN GRAFIS -->
 <section id="design" class="tab-content">
-    <div class="masonry" id="gallery">
-    </div>
-  </section>
+  <div class="masonry" id="design-gallery"></div>
+</section>
   
 </main>
 
@@ -100,14 +74,30 @@ window.addEventListener("DOMContentLoaded", () => {
     showTab(hash);
   }
 });
-const gallery = document.getElementById("gallery");
 
-projects
-  .slice()          // salin array
-  .reverse()        // supaya terbaru di atas
+/* ===== WEB PROJECTS ===== */
+const webGallery = document.getElementById("web-gallery");
+
+projectsWeb.forEach(p => {
+  webGallery.innerHTML += `
+    <div class="card">
+      <img src="${p.image}" alt="${p.title}">
+      <h3>${p.title}</h3>
+      <p>${p.desc}</p>
+      <a href="detail.html?id=${p.id}&type=web">Detail</a>
+    </div>
+  `;
+});
+
+/* ===== DESIGN PROJECTS ===== */
+const designGallery = document.getElementById("design-gallery");
+
+projectsDesign
+  .slice()
+  .reverse()
   .forEach(p => {
-    gallery.innerHTML += `
-      <a href="detail.html?id=${p.id}" class="masonry-item">
+    designGallery.innerHTML += `
+      <a href="detail.html?id=${p.id}&type=design" class="masonry-item">
         <img src="${p.image}" alt="${p.title}">
         <div class="overlay">
           <h3>${p.title}</h3>

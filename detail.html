@@ -109,7 +109,7 @@
         <p><strong>Tahun:</strong> <span id="year"></span></p>
       </div>
 
-      <a href="index.html#design" class="back-btn">← Kembali ke Portfolio</a>
+      <a href="#" id="backBtn" class="back-btn">← Kembali</a>
     </div>
   </div>
 
@@ -119,16 +119,26 @@
 <script>
   const params = new URLSearchParams(window.location.search);
   const id = params.get("id");
+  const type = params.get("type");
 
-  const project = projects.find(p => p.id === id);
+  let project;
+
+  if (type === "web") {
+    project = projectsWeb.find(p => p.id === id);
+  } else if (type === "design") {
+    project = projectsDesign.find(p => p.id === id);
+  }
 
   if (project) {
     document.getElementById("title").textContent = project.title;
     document.getElementById("image").src = project.image;
-    document.getElementById("image").alt = project.title;
     document.getElementById("desc").textContent = project.desc;
     document.getElementById("tools").textContent = project.tools;
     document.getElementById("year").textContent = project.year;
+
+    const backBtn = document.getElementById("backBtn");
+    backBtn.href = `index.html#${type}`;
+
   } else {
     document.querySelector(".detail-container").innerHTML =
       "<h2>Project tidak ditemukan</h2>";

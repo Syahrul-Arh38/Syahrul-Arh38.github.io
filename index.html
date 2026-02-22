@@ -12,8 +12,9 @@
 <header>
     <h1>Syahrul Ihza Arhamna</h1>
     <p>Web Developer & Graphic Designer</p>
+    <button class="nightMode" id="nightModeToggle" style="position:fixed;top:1rem;right:1rem;z-index:1000;">🌙</button>
     <nav>
-        <button class="tab-btn active" onclick="showTab('web', event)">Portfolio Website</button>
+        <button class="tab-btn active" onclick="showTab('web', event)">Website</button>
         <button class="tab-btn" onclick="showTab('design', event)">Desain Grafis</button>
     </nav>
 </header>
@@ -105,6 +106,16 @@ projectsDesign
       </a>
     `;
   });
+// Night mode toggle logic
+const nightModeToggle = document.getElementById('nightModeToggle');
+  function setNightMode(on) {
+    document.body.classList.toggle('night-mode', on);
+    localStorage.setItem('nightMode', on ? '1' : '0');
+    nightModeToggle.textContent = on ? '☀️' : '🌙';
+  }
+  // Load preference
+  setNightMode(localStorage.getItem('nightMode') === '1');
+  nightModeToggle.onclick = () => setNightMode(!document.body.classList.contains('night-mode'));
 </script>
 
 </body>

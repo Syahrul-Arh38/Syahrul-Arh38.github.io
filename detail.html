@@ -85,6 +85,21 @@
         font-size: 24px;
       }
     }
+
+    .visit-btn {
+      margin-top: 10px;
+      width: fit-content;
+      padding: 10px 20px;
+      background: #111;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 10px;
+      transition: .3s;
+    }
+
+    .visit-btn:hover {
+      background: #333;
+    }
   </style>
 </head>
 <body>
@@ -110,6 +125,9 @@
       </div>
 
       <a href="#" id="backBtn" class="back-btn">← Kembali</a>
+      <a href="#" id="projectLink" class="visit-btn" target="_blank" style="display:none;">
+        🔗 Visit Project
+      </a>
     </div>
   </div>
 
@@ -139,10 +157,17 @@
     const backBtn = document.getElementById("backBtn");
     backBtn.href = `index.html#${type}`;
 
+    const visitBtn = document.getElementById("projectLink");
+    if (project.link) {
+      visitBtn.href = project.link;
+      visitBtn.style.display = "inline-block";
+    }
+
   } else {
     document.querySelector(".detail-container").innerHTML =
       "<h2>Project tidak ditemukan</h2>";
   }
+  
 </script>
 
 </body>

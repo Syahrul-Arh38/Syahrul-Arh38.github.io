@@ -15,13 +15,13 @@ body {
     display: flex;
     flex-direction: column;
   }
-  
+
 header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background: white;      
+    background: #fffffe;      
     z-index: 1000;          
     padding: 15px 0;
     text-align: center;
@@ -35,6 +35,12 @@ header {
     margin-top: 10px;
   }
 
+  header .nightMode {
+    padding: 12px 15px;
+    border: none;
+    background-color: transparent;
+  }
+
   main {
     flex: 1;
     padding: 40px 20px;
@@ -42,19 +48,20 @@ header {
 
 
 .tab-btn {
-padding: 10px 25px;
-border: none;
-background: #e0e0e0;
-cursor: pointer;
-border-radius: 20px;
-font-weight: bold;
+  padding: 10px 25px;
+  border-color: #e53170;
+  background: #fff;
+  cursor: pointer;
+  border-radius: 20px;
+  font-weight: bold;
 }
 
 
 .tab-btn.active {
-background: #2a5298;
-color: #fff;
+  background: #e53170;
+  color: #fffffe;
 }
+
 
 
 
@@ -80,7 +87,7 @@ gap: 25px;
 
 
 .card {
-background: #fff;
+background: #fffffe;
 border-radius: 12px;
 padding: 15px;
 box-shadow: 0 4px 12px rgba(0,0,0,.1);
@@ -99,7 +106,7 @@ margin-bottom: 10px;
 .card a {
 display: inline-block;
 margin-top: 10px;
-color: #2a5298;
+color: #e53170;
 font-weight: bold;
 text-decoration: none;
 }
@@ -137,7 +144,7 @@ text-decoration: none;
     position: absolute;
     inset: 0;
     background: rgba(0,0,0,.55);
-    color: #fff;
+    color: #fffffe;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -169,13 +176,81 @@ text-decoration: none;
   }
 
 footer {
-    background: #2a5298;
-    color: #fff;
+    background: #e53170;
+    color: #fffffe;
     text-align: center;
     padding: 15px;
   }
   
   footer a {
-    color: #fff;
+    color: #fffffe;
     margin: 0 8px;
+  }
+
+  body.night-mode {
+    background: #181818;
+    color: #fffffe;
+  }
+  body.night-mode a {
+    color: #e53170;
+  }
+  body.night-mode .back-btn,
+  body.night-mode .visit-btn {
+    background: #0f0e17;
+    color: #fffffe;
+    border-color: #444;
+  }
+  body.night-mode header {
+    background: #0f0e17;
+    color: #fffffe;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+  }
+  body.night-mode main {
+    background: #0f0e17;
+  }
+  body.night-mode .detail-container {
+    background: #232323;
+    color: #fffffe;
+  }
+  body.night-mode input,
+  body.night-mode textarea {
+    background: #0f0e17;
+    color: #fffffe;
+    border: 1px solid #444;
+  }
+
+  body.night-mode .card {
+    background: #0f0e17;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+    }
+
+    body.night-mode footer a {
+      color: #fffffe;
+    }
+  body,
+  header,
+  main,
+  .detail-container,
+  .tab-btn,
+  .tab-btn.active,
+  .back-btn,
+  .visit-btn {
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  }
+  body.night-mode {
+    background: #181818;
+    color: #f1f1f1;
+  }
+
+  body,
+  header,
+  main,
+  .detail-container,
+  .tab-btn,
+  .tab-btn.active,
+  .back-btn,
+  .visit-btn {
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
   }

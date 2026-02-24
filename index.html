@@ -12,30 +12,53 @@
 <header>
     <h1>Syahrul Ihza Arhamna</h1>
     <p>Web Developer & Graphic Designer</p>
-    <button class="nightMode" id="nightModeToggle" style="position:fixed;top:1rem;right:1rem;z-index:1000;">🌙</button>
     <nav>
         <button class="tab-btn active" onclick="showTab('web', event)">Website</button>
         <button class="tab-btn" onclick="showTab('design', event)">Desain Grafis</button>
     </nav>
 </header>
 
-
+<button id="nightModeToggle" class="nightMode">
+  <span class="icon">🌙</span>
+</button>
 
 <main>
-
 <!-- PORTFOLIO WEBSITE -->
 <section id="web" class="tab-content active">
   <div class="grid" id="web-gallery"></div>
 </section>
-
 <!-- DESAIN GRAFIS -->
 <section id="design" class="tab-content">
+  <div class="design-tabs">
+    <button class="design-tab active" onclick="filterDesign('all', event)">All</button>
+    <button class="design-tab" onclick="filterDesign('clipart', event)">Clipart</button>
+    <button class="design-tab" onclick="filterDesign('illustration', event)">illustration</button>
+    <button class="design-tab" onclick="filterDesign('logo', event)">Logo</button>
+    <button class="design-tab" onclick="filterDesign('poster', event)">Poster</button>
+  </div>
   <div class="masonry" id="design-gallery"></div>
 </section>
-  
 </main>
 
+<!-- OVERLAY DETAIL -->
+<div id="projectModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
 
+    <img id="modalImage" class="modal-image" src="">
+    <h2 id="modalTitle"></h2>
+    <p id="modalDesc"></p>
+
+    <div class="modal-meta">
+      <p><strong>Tools:</strong> <span id="modalTools"></span></p>
+      <p><strong>Tahun:</strong> <span id="modalYear"></span></p>
+    </div>
+
+    <a id="modalLink" class="visit-btn" target="_blank" style="display:none;">
+      Visit Project
+    </a>
+  </div>
+</div>
 
 <footer>
 <a href="https://linkedin.com/in/syahrul-ihza-arhamna">LinkedIn</a>
@@ -68,6 +91,8 @@ function showTab(tabId, e = null) {
   }
 }
 
+
+
 /* CEK HASH SAAT HALAMAN DIBUKA */
 window.addEventListener("DOMContentLoaded", () => {
   const hash = window.location.hash.replace("#", "");
@@ -85,20 +110,20 @@ projectsWeb.forEach(p => {
       <img src="${p.image}" alt="${p.title}">
       <h3>${p.title}</h3>
       <p>${p.desc}</p>
-      <a href="detail.html?id=${p.id}&type=web">Detail</a>
+      <a href="#" onclick="openModal('${p.id}', 'web'); return false;" class="detail-btn">
+        View Detail
+      </a>
     </div>
   `;
 });
-
 /* ===== DESIGN PROJECTS ===== */
 const designGallery = document.getElementById("design-gallery");
 
 projectsDesign
   .slice()
-  .reverse()
   .forEach(p => {
     designGallery.innerHTML += `
-      <a href="detail.html?id=${p.id}&type=design" class="masonry-item">
+        <a href="#" onclick="openModal('${p.id}', 'design'); return false;" class="masonry-item">
         <img src="${p.image}" alt="${p.title}">
         <div class="overlay">
           <h3>${p.title}</h3>
@@ -106,6 +131,98 @@ projectsDesign
       </a>
     `;
   });
+
+  function renderDesignProjects(category = "all") {
+  designGallery.innerHTML = "";
+
+  const filtered = category === "all"
+    ? projectsDesign
+    : projectsDesign.filter(p => p.category === category);
+
+  filtered
+    .slice()
+    .reverse()
+    .forEach(p => {
+      const item = document.createElement("a");
+      item.href = "#";
+      item.className = "masonry-item";
+
+      item.innerHTML = `
+        <img src="${p.image}" alt="${p.title}">
+        <div class="overlay">
+          <h3>${p.title}</h3>
+        </div>
+      `;
+
+      item.onclick = function () {
+        openModal(p.id, "design");
+        return false;
+      };
+
+      designGallery.appendChild(item);
+    });
+  }
+
+  function filterDesign(category, e) {
+
+  document.querySelectorAll(".design-tab").forEach(btn =>
+    btn.classList.remove("active")
+  );
+
+  e.target.classList.add("active");
+
+  renderDesignProjects(category);
+  }
+
+  renderDesignProjects();
+
+  function openModal(id, type) {
+  let project;
+
+  if (type === "web") {
+    project = projectsWeb.find(p => p.id === id);
+  } else {
+    project = projectsDesign.find(p => p.id === id);
+  }
+
+  if (!project) return;
+
+  document.getElementById("modalImage").src = project.image;
+  document.getElementById("modalTitle").textContent = project.title;
+  document.getElementById("modalDesc").textContent = project.desc;
+  document.getElementById("modalTools").textContent = project.tools;
+  document.getElementById("modalYear").textContent = project.year;
+
+  const linkBtn = document.getElementById("modalLink");
+
+  if (project.link) {
+    linkBtn.href = project.link;
+    linkBtn.style.display = "inline-block";
+  } else {
+    linkBtn.style.display = "none";
+  }
+
+  document.getElementById("projectModal").style.display = "flex";
+  }
+
+  const modal = document.getElementById("projectModal");
+  const closeBtn = document.querySelector(".close-btn");
+
+  closeBtn.onclick = () => {
+    modal.style.display = "none";
+  };
+  window.onclick = function(e) {
+  if (e.target === modal) {
+    modal.style.display = "none";
+  }
+  };
+  document.addEventListener("keydown", function(e) {
+  if (e.key === "Escape") {
+    modal.style.display = "none";
+  }
+  });
+  
+
 // Night mode toggle logic
 const nightModeToggle = document.getElementById('nightModeToggle');
   function setNightMode(on) {

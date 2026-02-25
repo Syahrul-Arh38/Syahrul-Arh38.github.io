@@ -161,6 +161,7 @@ text-decoration: none;
 
   .design-tabs {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     margin-bottom: 2rem;
     gap: 20px;
@@ -304,10 +305,10 @@ text-decoration: none;
 
   .nightMode {
     position: fixed;
-    top: 110px;      
+    top: 122px;      
     right: 20px;
-    width: 50px;
-    height: 50px;
+    width: 25px;
+    height: 25px;
     border-radius: 50%;
     border: none;
     background: #111;
@@ -319,7 +320,7 @@ text-decoration: none;
     align-items: center;
     justify-content: center;
     transition: 0.3s ease;
-    font-size: 24px;
+    font-size: 18px;
     line-height: 1;
   }
 

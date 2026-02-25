@@ -48,6 +48,78 @@ const projectsWeb = [
   
   const projectsDesign = [
     {
+        id: "vector-gagak",
+        title: "Crow",
+        image: "images/DesainGrafis/gagak.jpg",
+        category: "illustration",
+        desc: "",
+        tools: "Infinity Design",
+        year: "2020"
+    },
+    {
+        id: "vector-woman",
+        title: "Woman",
+        image: "images/DesainGrafis/woman.jpg",
+        category: "illustration",
+        desc: "",
+        tools: "Infinity Design",
+        year: "2020"
+    },
+    {
+        id: "vector-womannhat",
+        title: "WomanNHat",
+        image: "images/DesainGrafis/womannhat.jpg",
+        category: "illustration",
+        desc: "",
+        tools: "Infinity Design",
+        year: "2021"
+    },
+    {
+        id: "vector-woman2",
+        title: "woman2",
+        image: "images/DesainGrafis/woman2.jpg",
+        category: "illustration",
+        desc: "",
+        tools: "Infinity Design",
+        year: "2021"
+    },
+    {
+        id: "vector-deathlist",
+        title: "Death List",
+        image: "images/DesainGrafis/deathlist.jpg",
+        category: "illustration",
+        desc: "",
+        tools: "Infinity Design",
+        year: "2021"
+    },
+    {
+        id: "vector-gusdur",
+        title: "Gusdur",
+        image: "images/DesainGrafis/gusdur.jpg",
+        category: "illustration",
+        desc: "",
+        tools: "Infinity Design",
+        year: "2021"
+    },
+    {
+        id: "vector-kanna",
+        title: "Kanna",
+        image: "images/DesainGrafis/kanna.jpg",
+        category: "illustration",
+        desc: "",
+        tools: "Infinity Design",
+        year: "2021"
+    },
+    {
+        id: "lostgraduation",
+        title: "Lost Graduation",
+        image: "images/DesainGrafis/lostgraduation.jpg",
+        category: "illustration",
+        desc: "",
+        tools: "Sketchbook",
+        year: "2021"
+    },
+    {
         id: "cover-bukuKKN",
         title: "Harmoni Nusantara",
         image: "images/DesainGrafis/Biru Illustrasi Buku Agenda Sekolah A4 Document (1).png",
@@ -71,6 +143,15 @@ const projectsWeb = [
         image: "images/DesainGrafis/cms-01.png",
         category: "logo",
         desc: "Proyek ini melibatkan perancangan logo resmi untuk kompetisi 'Cepagan Mini Soccer 2024'. Tujuan utamanya adalah menciptakan identitas visual yang memancarkan energi, sportivitas, dan semangat komunitas lokal di Desa Cepagan melalui simbolisme grafis yang modern.",
+        tools: "Adobe Illustrator, Photoshop",
+        year: "2024"
+    },
+    {
+        id: "logo-myfulus",
+        title: "Logo My Fulus",
+        image: "images/DesainGrafis/My Fulus.png",
+        category: "logo",
+        desc: "",
         tools: "Adobe Illustrator, Photoshop",
         year: "2024"
     },
@@ -99,6 +180,15 @@ const projectsWeb = [
         category: "poster",
         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         tools: "Canva",
+        year: "2024"
+    },
+    {
+        id: "inmyeyes",
+        title: "In My Eyes",
+        image: "images/DesainGrafis/In my eyes.jpg",
+        category: "illustration",
+        desc: "",
+        tools: "Autodesk Sketchbook",
         year: "2024"
     },
     {
@@ -144,6 +234,15 @@ const projectsWeb = [
         category: "poster",
         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         tools: "Canva",
+        year: "2024"
+    },
+    {
+        id: "logo-seminarcentral",
+        title: "Logo Seminar Central",
+        image: "images/DesainGrafis/Seminar Central.png",
+        category: "logo",
+        desc: "",
+        tools: "Adobe Illustrator, Photoshop",
         year: "2024"
     }
 ];

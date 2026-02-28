@@ -1,5 +1,14 @@
 const projectsWeb = [
     {
+        id: "web-umamisnack",
+        title: "Umami Snack",
+        image: "images/Website/image.png",
+        desc: `Umami Snack adalah sebuah website yang dirancang untuk mempromosikan dan menjual produk camilan lezat.`,
+        tools: "Html, JavaScript",
+        year: "2026",
+        link: "https://umamisnack.netlify.app/"
+    },
+    {
         id: "web-portfolio",
         title: "MyPortfolio",
         image: "images/Website/Portfolio.png",

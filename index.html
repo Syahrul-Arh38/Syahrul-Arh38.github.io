@@ -107,12 +107,13 @@ const webGallery = document.getElementById("web-gallery");
 projectsWeb.forEach(p => {
   webGallery.innerHTML += `
     <div class="card">
-      <img src="${p.image}" alt="${p.title}">
-      <h3>${p.title}</h3>
-      <p>${p.desc}</p>
-      <a href="#" onclick="openModal('${p.id}', 'web'); return false;" class="detail-btn">
-        View Detail
-      </a>
+      <div class="card-item" onclick="openModal('${p.id}', 'web')" style="cursor: pointer;">
+        <img src="${p.image}" alt="${p.title}">
+        <div class="overlay">
+          <h3>${p.title}</h3>
+          <p>Klik untuk detail</p>
+          </div>
+      </div>
     </div>
   `;
 });

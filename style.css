@@ -27,18 +27,20 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    background: var(--white-color);      
+    background: var(--primary-color);
+    color: var(--white-color);      
     z-index: 1000;          
     padding: 15px 0;
     text-align: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   }
 
   header nav {
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 0px;
     margin-top: 10px;
+    margin-bottom: -15px;
+    position: relative;
   }
 
   header .nightMode {
@@ -53,20 +55,47 @@ header {
   }
 
 
-.tab-btn {
-  padding: 10px 25px;
-  border-color: var(--primary-color);
-  background: var(--white-color);
-  cursor: pointer;
-  border-radius: 20px;
-  font-weight: bold;
-}
-
-
-.tab-btn.active {
-  background: var(--primary-color);
-  color: var(--white-color);
-}
+  .tab-btn {
+    padding: 12px 25px;
+    border: none;
+    background: var(--primary-color);
+    color: var(--white-color);
+    cursor: pointer;
+    font-weight: bold;
+    position: relative;
+    border-radius: 20px 20px 0 0;
+    transition: 0.3s;
+  }
+  
+  .tab-btn.active {
+    background: var(--white-color);
+    color: var(--primary-color);
+    z-index: 10;
+  }
+  
+  /* Membuat lengkungan inverse yang halus di kiri dan kanan */
+  .tab-btn.active::before,
+  .tab-btn.active::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 20px;
+    height: 20px;
+    background: var(--white-color);
+  }
+  
+  .tab-btn.active::before {
+    left: -20px;
+    /* Teknik Masking untuk membuat lengkungan ke dalam */
+    mask: radial-gradient(circle at 0 0, transparent 20px, black 21px);
+    -webkit-mask: radial-gradient(circle at 0 0, transparent 20px, black 21px);
+  }
+  
+  .tab-btn.active::after {
+    right: -20px;
+    mask: radial-gradient(circle at 100% 0, transparent 20px, black 21px);
+    -webkit-mask: radial-gradient(circle at 100% 0, transparent 20px, black 21px);
+  }
 
 
 .tab-content {
@@ -95,8 +124,28 @@ padding: 15px;
 box-shadow: 0 4px 12px rgba(0,0,0,.1);
 }
 
+.card-item {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  background: var(--white-color);
+}
+
+.card-item h3 {
+  padding-left: 5px;
+}
+
+.card:hover img {
+  transform: translateY(20%);
+  transition: transform 0.4s ease-out, opacity 0.3s ease;
+}
+
 
 .card img {
+  position: absolute;
 width: 100%;
 height: 180px;
 object-fit: cover;
@@ -233,9 +282,6 @@ text-decoration: none;
     .masonry { column-count: 2; }
   }
   
-  @media (max-width: 500px) {
-    .masonry { column-count: 1; }
-  }
 
   .modal {
     display: none;
@@ -281,9 +327,8 @@ text-decoration: none;
     position: absolute;
     top: 15px;
     right: 20px;
-    font-size: 24px;
+    font-size: 40px;
     cursor: pointer;
-    font-weight: bold;
   }
   
   @keyframes fadeIn {
@@ -354,6 +399,20 @@ text-decoration: none;
     color: var(--white-color);
     box-shadow: 0 2px 5px rgba(255, 255, 255, 0.2);
   }
+
+  body.night-mode .tab-btn {
+    background: var(--black-color);
+  }
+
+  body.night-mode .tab-btn.active {
+    background: var(--black-color);
+  }
+  
+
+  body.night-mode .tab-btn.active::after,
+  body.night-mode .tab-btn.active::before {
+    display: none;
+  }
   body.night-mode main {
     background: var(--black-color);
   }
@@ -375,6 +434,11 @@ text-decoration: none;
     box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
   }
 
+  body.night-mode .card-item {
+    color: var(--white-color);
+    background-color: var(--black-color);
+  }
+
   body.night-mode footer a {
     color: var(--white-color);
   }
@@ -394,6 +458,8 @@ text-decoration: none;
   .detail-container,
   .tab-btn,
   .tab-btn.active,
+  .tab-btn.active::after,
+  .tab-btn.active::before,
   .back-btn,
   .visit-btn {
     transition: background-color 0.3s, color 0.3s, border-color 0.3s;
@@ -409,6 +475,8 @@ text-decoration: none;
   .detail-container,
   .tab-btn,
   .tab-btn.active,
+  .tab-btn.active::after,
+  .tab-btn.active::before,
   .back-btn,
   .visit-btn {
     transition: background-color 0.3s, color 0.3s, border-color 0.3s;

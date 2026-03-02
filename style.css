@@ -1,7 +1,20 @@
+  
+
   :root {
-    --primary-color: #e53170;
-    --black-color: #0f0e17;
-    --white-color: #fffffe;
+    --text-black: #0a0507;
+    --text-white: #faf5f7;
+    --background: #efe6ea;
+    --primary: #b54a77;
+    --secondary: #d4aabb;
+    --accent: #f2ae26;
+  }
+  
+  /* Gunakan class .night-mode pada body agar sesuai dengan logic JS di index.html */
+  body.night-mode {
+    --background: #1a1115;
+    --primary: #b54a77;
+    --secondary: #552b3c;
+    --accent: #d9950d;
   }
 
 * {
@@ -15,23 +28,25 @@
     height: 100%;
   }
 
-body {
+  body {
     margin: 0;
     padding-top: 120px;
     display: flex;
     flex-direction: column;
+    background: var(--background);
   }
 
-header {
+  header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background: var(--primary-color);
-    color: var(--white-color);      
+    background: var(--background);
+    color: var(--text-black);      
     z-index: 1000;          
-    padding: 15px 0;
+    padding: 27px;
     text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   }
 
   header nav {
@@ -41,6 +56,7 @@ header {
     margin-top: 10px;
     margin-bottom: -15px;
     position: relative;
+    gap: 20px;
   }
 
   header .nightMode {
@@ -56,113 +72,90 @@ header {
 
 
   .tab-btn {
-    padding: 12px 25px;
+    padding: 10px 20px;
     border: none;
-    background: var(--primary-color);
-    color: var(--white-color);
+    background-color: color-mix(in srgb, var(--secondary), var(--background) 60%);
+    color: var(--text);
     cursor: pointer;
     font-weight: bold;
     position: relative;
-    border-radius: 20px 20px 0 0;
+    border-radius: 10px;
     transition: 0.3s;
+
   }
   
   .tab-btn.active {
-    background: var(--white-color);
-    color: var(--primary-color);
+    background: var(--primary);
+    color: var(--text-white);
     z-index: 10;
   }
-  
-  /* Membuat lengkungan inverse yang halus di kiri dan kanan */
-  .tab-btn.active::before,
-  .tab-btn.active::after {
-    content: "";
+
+
+  .tab-content {
+    display: none;
+  }
+
+
+  .tab-content.active {
+    display: block;
+  }
+
+
+  .grid {
+    max-width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 25px;
+  }
+
+
+  .card {
+    background-color: color-mix(in srgb, var(--secondary), var(--background) 60%);
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,.1);
+  }
+
+  .card-item {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: color-mix(in srgb, var(--secondary), var(--background) 60%);
+  }
+
+  .card-item h3 {
+    padding-left: 5px;
+  }
+
+  .card:hover img {
+    transform: translateY(20%);
+    transition: transform 0.4s ease-out, opacity 0.3s ease;
+  }
+
+
+  .card img {
     position: absolute;
-    bottom: 0;
-    width: 20px;
-    height: 20px;
-    background: var(--white-color);
-  }
-  
-  .tab-btn.active::before {
-    left: -20px;
-    /* Teknik Masking untuk membuat lengkungan ke dalam */
-    mask: radial-gradient(circle at 0 0, transparent 20px, black 21px);
-    -webkit-mask: radial-gradient(circle at 0 0, transparent 20px, black 21px);
-  }
-  
-  .tab-btn.active::after {
-    right: -20px;
-    mask: radial-gradient(circle at 100% 0, transparent 20px, black 21px);
-    -webkit-mask: radial-gradient(circle at 100% 0, transparent 20px, black 21px);
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
   }
 
 
-.tab-content {
-display: none;
-}
+  .card a {
+  display: inline-block;
+  margin-top: 10px;
+  color: var(--primary);
+  font-weight: bold;
+  text-decoration: none;
+  }
 
-
-.tab-content.active {
-display: block;
-}
-
-
-.grid {
-max-width: 1100px;
-margin: auto;
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-gap: 25px;
-}
-
-
-.card {
-background: var(--white-color);
-border-radius: 12px;
-padding: 15px;
-box-shadow: 0 4px 12px rgba(0,0,0,.1);
-}
-
-.card-item {
-  position: relative;
-  width: 100%;
-  height: 180px;
-  border-radius: 12px;
-  overflow: hidden;
-  cursor: pointer;
-  background: var(--white-color);
-}
-
-.card-item h3 {
-  padding-left: 5px;
-}
-
-.card:hover img {
-  transform: translateY(20%);
-  transition: transform 0.4s ease-out, opacity 0.3s ease;
-}
-
-
-.card img {
-  position: absolute;
-width: 100%;
-height: 180px;
-object-fit: cover;
-border-radius: 10px;
-margin-bottom: 10px;
-}
-
-
-.card a {
-display: inline-block;
-margin-top: 10px;
-color: var(--primary-color);
-font-weight: bold;
-text-decoration: none;
-}
-
-.masonry {
+  .masonry {
     column-count: 3;
     column-gap: 15px;
     max-width: 1100px;
@@ -195,7 +188,7 @@ text-decoration: none;
     position: absolute;
     inset: 0;
     background: rgba(0,0,0,.55);
-    color: var(--white-color);
+    color: var(--background);
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -218,8 +211,8 @@ text-decoration: none;
 
   .design-tab {
     padding: 5px 15px;
-    border-radius: 10px;
-    border: 1px solid var(--primary-color);
+    border-radius: 8px;
+    border: 1px solid var(--primary);
     cursor: pointer;
     background: transparent;
     transition: 0.3s;
@@ -228,13 +221,15 @@ text-decoration: none;
   }
 
   .design-tab.active {
-    background: var(--primary-color);
-    color: var(--white-color);
+    background: var(--primary);
+    color: var(--text-white);
   }
 
   .design-tab:hover {
-    background: var(--primary-color);
+    background-color: color-mix(in srgb, var(--secondary), var(--background) 60%);
     color: var(--white-color);
+    transform: translateY(-10%);
+    transition: transform 0.4s ease-out, opacity 0.3s ease;
   }
   
   .overlay h3 {
@@ -295,7 +290,7 @@ text-decoration: none;
   }
   
   .modal-content {
-    background: var(--white-color);
+    background: var(--background);
     width: 90%;
     max-width: 900px;
     padding: 30px;
@@ -315,11 +310,12 @@ text-decoration: none;
     margin-top: 10px;
       width: fit-content;
       padding: 10px 20px;
-      background: var(--primary-color);
-      color: var(--white-color);
+      background: var(--primary);
+      color: var(--text-white);
       text-decoration: none;
       border-radius: 10px;
       transition: .3s;
+      font-weight: bold;
    }
 
   
@@ -337,26 +333,26 @@ text-decoration: none;
   }
 
   footer {
-    background: var(--primary-color);
-    color: var(--white-color);
+    background: var(--primary);
+    color: var(--text-white);
     text-align: center;
     padding: 15px;
   }
   
   footer a {
-    color: var(--white-color);
+    color: var(--text-white);
     margin: 0 8px;
   }
 
   .nightMode {
     position: fixed;
-    top: 122px;      
+    top: 150px;      
     right: 20px;
     width: 25px;
     height: 25px;
     border-radius: 50%;
     border: none;
-    background: #111;
+    background: #1a1115;
     color: white;
     font-size: 20px;
     cursor: pointer;
@@ -371,7 +367,7 @@ text-decoration: none;
 
   .nightMode:hover {
     transform: scale(1.1);
-    background: var(--primary-color);
+    background: var(--primary);
   }
 
   .nightMode .icon {
@@ -381,75 +377,33 @@ text-decoration: none;
     line-height: 1;
   }
 
-  body.night-mode {
-    background: var(--black-color);
-    color: var(--white-color);
+  body.night-mode .nightMode {
+    background: #efe6ea;
   }
-  body.night-mode a {
-    color: var(--primary-color);
-  }
-  body.night-mode .back-btn,
-  body.night-mode .visit-btn {
-    background: var(--black-color);
-    color: var(--white-color);
-    border-color: #444;
-  }
+
+ 
   body.night-mode header {
-    background: var(--black-color);
     color: var(--white-color);
     box-shadow: 0 2px 5px rgba(255, 255, 255, 0.2);
   }
 
-  body.night-mode .tab-btn {
-    background: var(--black-color);
-  }
-
-  body.night-mode .tab-btn.active {
-    background: var(--black-color);
-  }
-  
-
-  body.night-mode .tab-btn.active::after,
-  body.night-mode .tab-btn.active::before {
-    display: none;
-  }
-  body.night-mode main {
-    background: var(--black-color);
-  }
-  body.night-mode .detail-container {
-    background: var(--black-color);
-    color: var(--white-color);
-  }
-  body.night-mode input,
-  body.night-mode textarea {
-    background: var(--black-color);
-    color: var(--white-color);
-    border: 1px solid #444;
-  }
-
   body.night-mode .card {
-    background: var(--black-color);
     border-radius: 12px;
     padding: 15px;
     box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
   }
 
   body.night-mode .card-item {
-    color: var(--white-color);
-    background-color: var(--black-color);
+    color: var(--text-white);
   }
 
   body.night-mode footer a {
-    color: var(--white-color);
+    color: var(--text-white);
   }
-  body.night-mode .modal-content{
-    background: var(--black-color);
-  }
-  body.night-mode .modal .visit-btn{
-    background: var(--primary-color);
-  }
+
+ 
   body.night-mode .design-tab {
-    color: var(--white-color);
+    color: var(--text-white);
   }
   
   body,
@@ -465,8 +419,7 @@ text-decoration: none;
     transition: background-color 0.3s, color 0.3s, border-color 0.3s;
   }
   body.night-mode {
-    background: var(--black-color);
-    color: var(--white-color);
+    color: var(--text-white);
   }
 
   body,

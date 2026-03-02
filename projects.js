@@ -28,7 +28,7 @@ const projectsWeb = [
     },
     {
         id: "Javanese-CNN",
-        title: "Javanese Script Recognition Using CNN",
+        title: "Javanese Script Recognition",
         image: "/images/Website/aksara jawa.jpg",
         desc: `Implementation of CNN for transliteration.`,
         tools: "Python, TensorFlow",

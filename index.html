@@ -29,6 +29,7 @@
 </section>
 <!-- DESAIN GRAFIS -->
 <section id="design" class="tab-content">
+  <div class="grid-desain">
   <div class="design-tabs">
     <button class="design-tab active" onclick="filterDesign('all', event)">All</button>
     <button class="design-tab" onclick="filterDesign('clipart', event)">Clipart</button>
@@ -37,6 +38,7 @@
     <button class="design-tab" onclick="filterDesign('poster', event)">Poster</button>
   </div>
   <div class="masonry" id="design-gallery"></div>
+</div>
 </section>
 </main>
 
@@ -61,9 +63,32 @@
 </div>
 
 <footer>
-<a href="https://linkedin.com/in/syahrul-ihza-arhamna">LinkedIn</a>
-<a href="https://github.com/Syahrul-Arh38">Github</a>
-<p>© 2026 Syahrul-Arh38</p>
+  <div class="footer-grid">
+    <div class="col-brand">
+      <h4>Syahrul Ihza Arhamna</h4>
+      <p>Visualize your code and creativity.</p>
+    </div>
+
+    <div class="col-links">
+      <h4>EXPLORE</h4>
+      <a href="#">Kejora Starspace</a>
+      <a href="#">Landing Page Project</a>
+      <a href="#">Digital Art Gallery</a>
+    </div>
+
+    <div class="col-links">
+      <h4>LET'S CONNECT</h4>
+      <a href="https://www.linkedin.com/in/syahrul-ihza-arhamna/">LinkedIn ↗</a>
+      <a href="https://github.com/syahrul-arh38">GitHub ↗</a>
+      <a href="mailto:syahrulihzaarhamna@gmail.com">Email Me</a>
+    </div>
+  </div>
+
+  <hr class="footer-divider">
+
+  <div class="footer-bottom">
+    <p>Copyright © 2026 All Rights Reserved.</p>
+  </div>
 </footer>
 
 
@@ -79,10 +104,8 @@ function showTab(tabId, e = null) {
 
   document.getElementById(tabId).classList.add('active');
 
-  // aktifkan tombol jika ada event klik
   if (e) e.target.classList.add('active');
   else {
-    // aktifkan tombol berdasarkan tabId
     document.querySelectorAll('.tab-btn').forEach(btn => {
       if (btn.getAttribute("onclick")?.includes(tabId)) {
         btn.classList.add('active');
@@ -92,8 +115,6 @@ function showTab(tabId, e = null) {
 }
 
 
-
-/* CEK HASH SAAT HALAMAN DIBUKA */
 window.addEventListener("DOMContentLoaded", () => {
   const hash = window.location.hash.replace("#", "");
   if (hash === "design" || hash === "web") {

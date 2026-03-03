@@ -9,7 +9,7 @@
     --accent: #f2ae26;
   }
   
-  /* Gunakan class .night-mode pada body agar sesuai dengan logic JS di index.html */
+
   body.night-mode {
     --background: #1a1115;
     --primary: #b54a77;
@@ -25,8 +25,11 @@
   }
   
   html, body {
-    height: 100%;
-  }
+    height: auto !important;
+    min-height: 100%;
+    margin: 0;
+    padding-bottom: 10px; 
+}
 
   body {
     margin: 0;
@@ -44,7 +47,8 @@
     background: var(--background);
     color: var(--text-black);      
     z-index: 1000;          
-    padding: 27px;
+    padding-top: 20px;
+    padding-bottom: 25px;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   }
@@ -67,7 +71,7 @@
 
   main {
     flex: 1;
-    padding: 40px 20px;
+    padding: 40px 0px;
   }
 
 
@@ -102,8 +106,9 @@
 
 
   .grid {
-    max-width: 90%;
-    margin: auto;
+    max-width: 100%;
+    margin-left: 40px;
+    margin-right: 40px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 25px;
@@ -114,7 +119,6 @@
     background-color: color-mix(in srgb, var(--secondary), var(--background) 60%);
     border-radius: 12px;
     padding: 15px;
-    box-shadow: 0 4px 12px rgba(0,0,0,.1);
   }
 
   .card-item {
@@ -154,6 +158,11 @@
   font-weight: bold;
   text-decoration: none;
   }
+
+  .grid-desain{
+    padding: 0px 40px;
+  }
+
 
   .masonry {
     column-count: 3;
@@ -272,11 +281,7 @@
     margin-bottom: 1rem;
   }
   
-  
-  @media (max-width: 900px) {
-    .masonry { column-count: 2; }
-  }
-  
+
 
   .modal {
     display: none;
@@ -333,16 +338,56 @@
   }
 
   footer {
-    background: var(--primary);
-    color: var(--text-white);
-    text-align: center;
-    padding: 15px;
+    border-radius: 15px;
+    background-color: color-mix(in srgb, var(--secondary), var(--background) 60%);
+    color: var(--text-black);
+    text-align: left;
+    padding: 60px 40px 40px;
+    margin-left: 40px;
+    margin-right: 40px;
+    font-family: sans-serif;
   }
   
-  footer a {
-    color: var(--text-white);
-    margin: 0 8px;
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
   }
+
+  .col-brand h4 {
+    color: var(--black-color);
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+
+  .col-links h4 {
+    color: var(--primary);
+    font-size: 0.8rem;
+    letter-spacing: px;
+    margin-bottom: 10px;
+  }
+
+  .col-links a {
+    display: block;
+    text-decoration: none;
+    color: var(--text-black);
+    margin-bottom: 12px;
+    font-size: 1rem;
+  }
+
+  .col-links a:hover {
+    color: var(--primary);
+    transform:translateY(-2px) ;
+  }
+
+  .footer-divider {
+    border: 0;
+    border-top: 1px solid var(--primary);
+    margin: 40px 0 20px;
+  }
+
 
   .nightMode {
     position: fixed;
@@ -388,15 +433,13 @@
   }
 
   body.night-mode .card {
-    border-radius: 12px;
-    padding: 15px;
-    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
   }
 
   body.night-mode .card-item {
     color: var(--text-white);
   }
-
+  body.night-mode footer,
   body.night-mode footer a {
     color: var(--text-white);
   }
@@ -405,6 +448,8 @@
   body.night-mode .design-tab {
     color: var(--text-white);
   }
+
+  
   
   body,
   header,
@@ -433,4 +478,24 @@
   .back-btn,
   .visit-btn {
     transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  }
+
+
+
+  @media (max-width: 768px) {
+    header h1 {
+      font-size: 1.5rem;
+    }
+    header p {
+      font-size: 0.9rem;
+    }
+    .masonry { column-count: 2; }
+    .footer-grid {
+      grid-template-columns: 1fr; /* Jadi 1 kolom di HP */
+      text-align: left;
+    }
+    
+    .footer {
+      padding: 40px 20px;
+    }
   }

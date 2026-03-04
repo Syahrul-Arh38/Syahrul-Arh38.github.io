@@ -68,7 +68,7 @@ const projectsWeb = [
     {
         id: "vector-woman",
         title: "Woman",
-        image: "images/DesainGrafis/woman.jpg",
+        image: "images/DesainGrafis/woman.png",
         category: "illustration",
         desc: "",
         tools: "Infinity Design",
@@ -77,7 +77,7 @@ const projectsWeb = [
     {
         id: "vector-womannhat",
         title: "WomanNHat",
-        image: "images/DesainGrafis/womannhat.jpg",
+        image: "images/DesainGrafis/womannhat.png",
         category: "illustration",
         desc: "",
         tools: "Infinity Design",
@@ -122,7 +122,7 @@ const projectsWeb = [
     {
         id: "lostgraduation",
         title: "Lost Graduation",
-        image: "images/DesainGrafis/lostgraduation.jpg",
+        image: "images/DesainGrafis/lostgraduation.png",
         category: "illustration",
         desc: "",
         tools: "Sketchbook",
@@ -194,7 +194,7 @@ const projectsWeb = [
     {
         id: "inmyeyes",
         title: "In My Eyes",
-        image: "images/DesainGrafis/In my eyes.jpg",
+        image: "images/DesainGrafis/In my eyes.png",
         category: "illustration",
         desc: "",
         tools: "Autodesk Sketchbook",

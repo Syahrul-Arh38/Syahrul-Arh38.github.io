@@ -1,20 +1,20 @@
   
 
   :root {
-    --text-black: #0a0507;
-    --text-white: #faf5f7;
-    --background: #efe6ea;
-    --primary: #b54a77;
-    --secondary: #d4aabb;
-    --accent: #f2ae26;
-  }
+    --text-black: #080f12;
+    --text-white: #edf4f7;
+    --background: #f8fbfc;
+    --primary: #00b2ff;
+    --secondary: #8cc7df;
+    --accent: #6dbcde;
+    }
   
 
   body.night-mode {
-    --background: #1a1115;
-    --primary: #b54a77;
-    --secondary: #552b3c;
-    --accent: #d9950d;
+    --background: #030607;
+    --primary: #00b2ff;
+    --secondary: #215c73;
+    --accent: #217091;
   }
 
 * {

@@ -1,8 +1,17 @@
 const projectsWeb = [
     {
+        id: "web-lapakkepitingkerang",
+        title: "Lapak Kepiting & Kerang",
+        image: "images/Website/LapakKepiting.png",
+        desc: `Lapak Kepiting & Kerang adalah sebuah website yang dirancang untuk mempromosikan dan menjual produk asli lautan.`,
+        tools: "React, JavaScript",
+        year: "2026",
+        link: "https://umamisnack.netlify.app/"
+    },
+    {
         id: "web-umamisnack",
         title: "Umami Snack",
-        image: "images/Website/image.png",
+        image: "images/Website/Umamisnack.png",
         desc: `Umami Snack adalah sebuah website yang dirancang untuk mempromosikan dan menjual produk camilan lezat.`,
         tools: "Html, JavaScript",
         year: "2026",

@@ -6,7 +6,7 @@ const projectsWeb = [
         desc: `Lapak Kepiting & Kerang adalah sebuah website yang dirancang untuk mempromosikan dan menjual produk asli lautan.`,
         tools: "React, JavaScript",
         year: "2026",
-        link: "https://umamisnack.netlify.app/"
+        link: "https://lapak-kepiting-kerang.vercel.app/"
     },
     {
         id: "web-umamisnack",

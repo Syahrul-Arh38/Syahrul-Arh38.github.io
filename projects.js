@@ -1,5 +1,14 @@
 const projectsWeb = [
     {
+        id: "web-myArsip",
+        title: "My Arsip",
+        image: "images/Website/MyArsip.png",
+        desc: `Sebuah website untuk menyimpan dan mengelola arsip pribadi.`,
+        tools: "React, JavaScript, Tailwind CSS, Google Apps Script",
+        year: "2026",
+        link: "https://my-arsip.vercel.app"
+    },
+    {
         id: "web-profile",
         title: "MyProfile",
         image: "images/Website/profile.png",

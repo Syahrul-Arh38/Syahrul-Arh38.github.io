@@ -1,20 +1,22 @@
   
 
   :root {
-    --text-black: #080f12;
-    --text-white: #edf4f7;
-    --background: #f8fbfc;
-    --primary: #00b2ff;
-    --secondary: #8cc7df;
-    --accent: #6dbcde;
+    --text-black: #150416;
+    --text-white: #fae9fb;
+    --background: #fbeefc;
+    --primary: #741683;
+    --secondary: #e8738e;
+    --accent: #c02321;
+    
+
     }
   
 
   body.night-mode {
-    --background: #030607;
-    --primary: #00b2ff;
-    --secondary: #215c73;
-    --accent: #217091;
+    --background: #110312;
+    --primary: #db7ce9;
+    --secondary: #8b1733;
+    --accent: #df4341;
   }
 
 * {
@@ -78,7 +80,7 @@
   .tab-btn {
     padding: 10px 20px;
     border: none;
-    background-color: color-mix(in srgb, var(--secondary), var(--background) 60%);
+    background-color: color-mix(in srgb, var(--secondary), var(--background) 80%);
     color: var(--text);
     cursor: pointer;
     font-weight: bold;
@@ -116,7 +118,7 @@
 
 
   .card {
-    background-color: color-mix(in srgb, var(--secondary), var(--background) 60%);
+    background-color: color-mix(in srgb, var(--secondary), var(--background) 80%);
     border-radius: 12px;
     padding: 15px;
   }
@@ -128,7 +130,7 @@
     border-radius: 12px;
     overflow: hidden;
     cursor: pointer;
-    background-color: color-mix(in srgb, var(--secondary), var(--background) 60%);
+    background-color: color-mix(in srgb, var(--secondary), var(--background) 80%);
   }
 
   .card-item h3 {
@@ -236,7 +238,7 @@
   }
 
   .design-tab:hover {
-    background-color: color-mix(in srgb, var(--secondary), var(--background) 60%);
+    background-color: color-mix(in srgb, var(--secondary), var(--background) 80%);
     color: var(--white-color);
     transform: translateY(-10%);
     transition: transform 0.4s ease-out, opacity 0.3s ease;
@@ -340,7 +342,7 @@
 
   footer {
     border-radius: 15px;
-    background-color: color-mix(in srgb, var(--secondary), var(--background) 60%);
+    background-color: color-mix(in srgb, var(--secondary), var(--background) 80%);
     color: var(--text-black);
     text-align: left;
     padding: 60px 40px 40px;

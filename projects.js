@@ -1,5 +1,14 @@
 const projectsWeb = [
     {
+        id: "web-profile",
+        title: "MyProfile",
+        image: "images/Website/profile.png",
+        desc: `Sebuah websit untuk memperkenalkan diri`,
+        tools: "React, JavaScript, Tailwind CSS",
+        year: "2026",
+        link: "https://lapak-kepiting-kerang.vercel.app/"
+    },
+    {
         id: "web-lapakkepitingkerang",
         title: "Lapak Kepiting & Kerang",
         image: "images/Website/LapakKepiting.png",
@@ -29,9 +38,9 @@ const projectsWeb = [
     {
         id: "web-pegon",
         title: "Arab Pegon Recognition",
-        image: "images/Website/bg.avif",
+        image: "images/Website/arabpegon.png",
         desc: `Implementation of CNN for transliteration.`,
-        tools: "Python, TensorFlow",
+        tools: "Flask Python, TensorFlow",
         year: "2025",
         link: "https://github.com/Syahrul-Arh38/Transliteration-of-Handwritten-Arabic-Pegon-Text-into-Latin-with-Convolutional-Neural-Network--CNN-"
     },
